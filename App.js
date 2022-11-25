@@ -66,7 +66,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   tabBar: {
-    height: 45,
+    // height: 45,
     paddingHorizontal: 5,
     paddingTop: 0,
     position: 'absolute',
