@@ -1,9 +1,24 @@
-import { Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import Screen from '../components/Screen';
+import data from "../fakeDataNews"
+import NewsContainer from '../components/NewsContainer';
 
 export default function NewsScreen() {
+    const newsData = data;
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>News!</Text>
-        </View>
+        <Screen >
+            <View style={styles.container}>
+                <NewsContainer data={newsData} />
+            </View>
+        </Screen >
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginBottom: 50,
+    }
+});
+
+// expo-cli start --tunnel
