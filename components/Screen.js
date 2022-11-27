@@ -1,11 +1,13 @@
-import { StyleSheet, ScrollView, Dimensions, View, NativeSyntheticEvent, NativeScrollEvent } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import React from 'react';
 
-export default function Screen({ children, handleScroll }) {
+export default function Screen({ children, handleScroll, backgroundColor = "#f7f3f3", }) {
     return (
-        <ScrollView style={styles.container} scrollEventThrottle={16} onScroll={handleScroll}>
-            {children}
-        </ScrollView>
+        <SafeAreaView style={{ flex: 0, backgroundColor }}>
+            <ScrollView style={{ backgroundColor }} scrollEventThrottle={16} onScroll={handleScroll}>
+                {children}
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 

@@ -1,17 +1,12 @@
 
-import { StyleSheet, View, Text } from 'react-native';
+import { Text } from 'react-native';
 import React from 'react';
 
 
-export default function TitleOfVideoScreen({ children, fontWeight = 'bold', fontSize = "18" }) {
+export default function Title({ children, color = "black" }) {
 
     return (
-        <Text numberOfLines={3} style={{ fontWeight, fontSize }}>{children}</Text>
+        <Text numberOfLines={3} style={{ fontWeight: 'bold', fontSize: 18, color: color }}>{children}</Text>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-
-    },
-});

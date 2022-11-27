@@ -15,8 +15,8 @@ export default function VideoScreen() {
         setFocusedIndex(offset)
     }, [setFocusedIndex]);
     return (
-        <Screen handleScroll={handleScroll} >
-            <VideoNews data={videoNews} focusedIndex={focusedIndex} />
+        <Screen handleScroll={handleScroll} backgroundColor="black">
+            <VideoNews data={videoNews} focusedIndex={focusedIndex} color="pink" style={{ backgroundColor: "black" }} />
         </Screen >
     );
 }

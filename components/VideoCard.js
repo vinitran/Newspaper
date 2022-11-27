@@ -1,37 +1,38 @@
-import { StyleSheet, View, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import { Video } from 'expo-av';
 import React from 'react';
 import Title from './Title';
 import Logo from './Logo';
 
-export default function VideoCard({ item, focusedIndex, index }) {
+export default function VideoCard({ item, focusedIndex, index, onPress, color, style }) {
     const { uriVideo, thumbnail, time, title } = item;
     const video = React.useRef(null);
     const [status, setStatus] = React.useState({});
 
     return (
-        <View style={styles.container}>
-            <View style={styles.videos}>
-                <Video
-                    ref={video}
-                    style={styles.video}
-                    source={{ uri: uriVideo }}
-                    useNativeControls
-                    resizeMode="contain"
-                    isLooping
-                    onPlaybackStatusUpdate={setStatus}
-                    shouldPlay={focusedIndex === index}
+        <TouchableWithoutFeedback onPress={onPress}>
+            <View style={[styles.container, style]}>
+                <View style={styles.videos}>
+                    <Video
+                        ref={video}
+                        style={styles.video}
+                        source={{ uri: uriVideo }}
+                        useNativeControls
+                        resizeMode="contain"
+                        isLooping
+                        onPlaybackStatusUpdate={setStatus}
+                        shouldPlay={focusedIndex === index}
 
-                />
+                    />
+                </View>
+                <Logo thumbnail={thumbnail} time={time} color={color} />
+                <View style={styles.content}>
+                    <Title color={color}>
+                        {title}
+                    </Title>
+                </View>
             </View>
-            <Logo thumbnail={thumbnail} time={time} />
-            <View style={styles.content}>
-                <Title style={styles.content}>
-                    {title}
-                </Title>
-            </View>
-
-        </View>
+        </TouchableWithoutFeedback>
     );
 }
 
