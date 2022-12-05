@@ -5,7 +5,7 @@ import data1 from "../fakeDataTrending1"
 import data2 from "../fakeDataTrending2"
 import data3 from "../fakeDataTrending3"
 
-import TrendingContainer from '../components/TrendingContainer';
+import TrendingContainer from '../components/trending/TrendingContainer';
 
 export default function TrendingScreen() {
     var myloop = [];

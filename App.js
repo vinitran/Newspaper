@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import video from "./screens/video"
 import VideoDetail from "./screens/VideoDetail"
+import NewsDetail from './screens/NewsDetail';
 
 import VideoNavigator from './navigation/VideoNavigator';
 
@@ -18,6 +19,10 @@ export default function App() {
         <Stack.Screen name="video" component={video} options={{ headerShown: false }}></Stack.Screen>
         <Stack.Screen name="VideoDetail" component={VideoDetail} options={{
           headerBackTitleVisible: false, headerTransparent: true, title: ""
+
+        }}></Stack.Screen>
+        <Stack.Screen name="NewsDetail" component={NewsDetail} options={{
+          headerBackTitleVisible: false, headerTransparent: false, title: ""
 
         }}></Stack.Screen>
       </Stack.Navigator>

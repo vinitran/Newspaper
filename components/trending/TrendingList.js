@@ -2,15 +2,18 @@ import { Text, StyleSheet, View } from 'react-native';
 import React from 'react';
 import TrendingCard from './TrendingCard';
 
+import { useNavigation } from '@react-navigation/native';
 
-export default function TrendingList({ data , topic }) {
+
+export default function TrendingList({ data, topic }) {
+  const navigation = useNavigation();
   return (
     <View>
       <View style={styles.container}>
         <View style={styles.topic}>
           <Text style={styles.textTopic}> $ {topic} </Text>
         </View>
-        {data.map((item) => <TrendingCard item={item} key={item.id} />)}
+        {data.map((item) => <TrendingCard onPress={() => navigation.navigate('NewsDetail')} item={item} key={item.id} />)}
         <Text style={styles.readmore}>Đọc thêm</Text>
       </View>
     </View>
