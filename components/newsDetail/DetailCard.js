@@ -4,7 +4,7 @@ import Title from '../Title';
 import Logo from '../Logo';
 
 export default function DetailCard({ item }) {
-    const { imageUrl, logo, time, title, description } = item;
+    const { time, title, description } = item;
     const news = React.useRef(null);
     const [status, setStatus] = React.useState({});
 
@@ -20,26 +20,21 @@ export default function DetailCard({ item }) {
                 <Text style={styles.time}>
                     {time}
                 </Text>
+
             </View>
 
-            <View>
-                <Text style={styles.subtitle}>{description[0]}</Text>
-            </View>
+            {description.map((item) =>
+                <View>
+                    {item['text'] !== null &&
+                        <Text style={styles.description}>{item['text']}</Text>}
 
-            <View>
-                <Text style={styles.description}>{description[1]}</Text>
-            </View>
-
-            <View style={styles.videos}>
-                <Image
-                    style={styles.video}
-                    source={{ uri: imageUrl[0] }}
-                />
-            </View>
-
-            <View>
-                <Text style={styles.description}>{description[1]}</Text>
-            </View>
+                    {item['image'] !== null &&
+                        <Image
+                            style={styles.image}
+                            source={{ uri: item['image'] }}
+                        />}
+                </View>
+            )}
 
             <View style={styles.button}>
                 <Button
@@ -59,12 +54,12 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         paddingHorizontal: 20,
     },
-    video: {
+    image: {
         width: '100%',
         height: 200,
-        marginTop: 20,
+        marginTop: 30,
         borderRadius: 8,
-        marginBottom: 20,
+        marginBottom: 30,
     },
     title: {
         fontWeight: 'bold',
