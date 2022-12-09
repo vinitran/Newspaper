@@ -1,44 +1,32 @@
 export default [
     {
-        id: '1',
-        title: "Lời khai ban đầu của 2 bị cáo vụ bé gái 8 tuổi bị bạo hành đến chết",
-        time: '2 giờ',
-        thumbnail: 'https://haiyengroup.com/wp-content/uploads/2017/01/b%C3%A1o-gi%C3%A1-qu%E1%BA%A3ng-c%C3%A1o-b%C3%A1o-phap-luat-.png',
-        uriVideo: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+        id: 1,
+        channelName: 'cutedog',
+        uri: 'https://v.pinimg.com/videos/mc/720p/f6/88/88/f68888290d70aca3cbd4ad9cd3aa732f.mp4',
+        caption: 'Cute dog shaking hands #cute #puppy',
+        musicName: 'Song #1',
+        likes: 4321,
+        comments: 2841,
+        avatarUri: 'https://wallpaperaccess.com/full/1669289.jpg',
     },
     {
-        id: '2',
-        title: "Lời khai ban đầu của 2 bị cáo vụ bé gái 8 tuổi bị bạo hành đến chết",
-        time: '2 giờ',
-        thumbnail: 'https://haiyengroup.com/wp-content/uploads/2017/01/b%C3%A1o-gi%C3%A1-qu%E1%BA%A3ng-c%C3%A1o-b%C3%A1o-phap-luat-.png',
-        uriVideo: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
+        id: 2,
+        channelName: 'meow',
+        uri: 'https://v.pinimg.com/videos/mc/720p/11/05/2c/11052c35282355459147eabe31cf3c75.mp4',
+        caption: 'Doggies eating candy #cute #puppy',
+        musicName: 'Song #2',
+        likes: 2411,
+        comments: 1222,
+        avatarUri: 'https://wallpaperaccess.com/thumb/266770.jpg',
     },
     {
-        id: '3',
-        title: "Lời khai ban đầu của 2 bị cáo vụ bé gái 8 tuổi bị bạo hành đến chết",
-        time: '2 giờ',
-        thumbnail: 'https://haiyengroup.com/wp-content/uploads/2017/01/b%C3%A1o-gi%C3%A1-qu%E1%BA%A3ng-c%C3%A1o-b%C3%A1o-phap-luat-.png',
-        uriVideo: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
+        id: 3,
+        channelName: 'yummy',
+        uri: 'https://v.pinimg.com/videos/mc/720p/c9/22/d8/c922d8391146cc2fdbeb367e8da0d61f.mp4',
+        caption: 'Brown little puppy #cute #puppy',
+        musicName: 'Song #3',
+        likes: 3100,
+        comments: 801,
+        avatarUri: 'https://wallpaperaccess.com/thumb/384178.jpg',
     },
-    {
-        id: '4',
-        title: "Lời khai ban đầu của 2 bị cáo vụ bé gái 8 tuổi bị bạo hành đến chết",
-        time: '2 giờ',
-        thumbnail: 'https://haiyengroup.com/wp-content/uploads/2017/01/b%C3%A1o-gi%C3%A1-qu%E1%BA%A3ng-c%C3%A1o-b%C3%A1o-phap-luat-.png',
-        uriVideo: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
-    },
-    {
-        id: '5',
-        title: "Lời khai ban đầu của 2 bị cáo vụ bé gái 8 tuổi bị bạo hành đến chết",
-        time: '2 giờ',
-        thumbnail: 'https://haiyengroup.com/wp-content/uploads/2017/01/b%C3%A1o-gi%C3%A1-qu%E1%BA%A3ng-c%C3%A1o-b%C3%A1o-phap-luat-.png',
-        uriVideo: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
-    },
-    {
-        id: '6',
-        title: "Lời khai ban đầu của 2 bị cáo vụ bé gái 8 tuổi bị bạo hành đến chết",
-        time: '2 giờ',
-        thumbnail: 'https://haiyengroup.com/wp-content/uploads/2017/01/b%C3%A1o-gi%C3%A1-qu%E1%BA%A3ng-c%C3%A1o-b%C3%A1o-phap-luat-.png',
-        uriVideo: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4'
-    },
-]
+];
