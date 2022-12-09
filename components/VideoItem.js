@@ -32,7 +32,7 @@ export default function VideoItem({ data, isActive }) {
     const bottomTabHeight = useBottomTabBarHeight()
     const statusBarHeight = StatusBar.currentHeight || 0;
     return (
-        <View style={[styles.container, { height: windowHeight - bottomTabHeight - statusBarHeight }]}>
+        <View style={[styles.container, { height: windowHeight }]}>
             <Video
                 ref={video}
                 style={styles.video}
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         width: "100%",
         paddingHorizontal: 8,
-        paddingBottom: 16
+        paddingBottom: 90
     },
     bottomLeftSection: {
         flex: 4,
@@ -134,8 +134,8 @@ const styles = StyleSheet.create({
     verticalBar: {
         position: "absolute",
         right: 8,
-        bottom: 150,
-
+        bottom: 72,
+        paddingBottom: 90
     },
     verticalBarItem: {
         marginBottom: 24,
