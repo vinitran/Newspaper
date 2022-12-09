@@ -1,27 +1,36 @@
-import { FlatList, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import * as React from 'react';
-import VideoItem from '../components/VideoItem';
-import video from "../fakeDataVideo"
-import { windowHeight } from '../constant';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import Screen from '../components/Screen';
+import VideoNews from '../components/VideoNews';
+import axios from 'axios';
 
+
+const ITEM_HEIGHT = 350;
 export default function VideoScreen() {
-    const data = video;
-    const [activeVideoIndex, setActiveVideoIndex] = React.useState(0)
-    const bottomTabHeight = useBottomTabBarHeight();
+    const [focusedIndex, setFocusedIndex] = React.useState(0);
+
+    const [videoNews, setVideoNews] = React.useState([]);
+    React.useEffect(() => {
+        async function fetchVideos() {
+            try {
+                const requestUrl = "";
+                const data = await axios.get(requestUrl)
+                    .then(res => res.data)
+                setVideoNews(data)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchVideos()
+    }, [])
+    const handleScroll = React.useCallback((e) => {
+        const offset = Math.round(e.nativeEvent.contentOffset.y / ITEM_HEIGHT);
+        setFocusedIndex(offset)
+    }, [setFocusedIndex]);
     return (
-        <FlatList
-            data={data}
-            pagingEnabled
-            renderItem={({ item, index }) => <VideoItem data={item} isActive={activeVideoIndex === index} />}
-            onScroll={e => {
-                const index = Math.round(e.nativeEvent.contentOffset.y / (windowHeight - bottomTabHeight))
-                setActiveVideoIndex(index)
-            }}
-        />
-
-
-
+        <Screen handleScroll={handleScroll} >
+            <VideoNews data={videoNews} focusedIndex={focusedIndex} />
+        </Screen >
     );
 }
 

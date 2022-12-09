@@ -1,23 +1,23 @@
-import { FlatList, SafeAreaView, StyleSheet, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 import * as React from 'react';
-import VideoItem from '../components/VideoItem';
-import video from "../fakeDataVideo"
-import { windowHeight } from '../constant';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-export default function VideoDetail() {
-    const data = video;
-    const [activeVideoIndex, setActiveVideoIndex] = React.useState(0)
-    const insets = useSafeAreaInsets();
+import Screen from '../components/Screen';
+import data from "../fakeDataVideo"
+import VideoNews from '../components/VideoNews';
+
+
+const ITEM_HEIGHT = 350;
+export default function VideoScreen() {
+    const [focusedIndex, setFocusedIndex] = React.useState(0);
+
+    const videoNews = data;
+    const handleScroll = React.useCallback((e) => {
+        const offset = Math.round(e.nativeEvent.contentOffset.y / ITEM_HEIGHT);
+        setFocusedIndex(offset)
+    }, [setFocusedIndex]);
     return (
-        <FlatList
-            data={data}
-            pagingEnabled
-            renderItem={({ item, index }) => <VideoItem data={item} isActive={activeVideoIndex === index} />}
-            onScroll={e => {
-                const index = Math.round(e.nativeEvent.contentOffset.y / (windowHeight - insets.bottom - 60))
-                setActiveVideoIndex(index)
-            }}
-        />
+        <Screen handleScroll={handleScroll} backgroundColor="black">
+            <VideoNews data={videoNews} focusedIndex={focusedIndex} color="pink" style={{ backgroundColor: "black" }} />
+        </Screen >
     );
 }
 
