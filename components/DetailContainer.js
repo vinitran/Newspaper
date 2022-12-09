@@ -1,15 +1,10 @@
-import { StyleSheet, Button, TouchableWithoutFeedback, Text, View, Image } from 'react-native';
+import { StyleSheet, Button, Text, View, Image } from 'react-native';
 import React from 'react';
-import Title from '../Title';
-import Logo from '../Logo';
 
-export default function DetailCard({ item }) {
-    const { time, title, description } = item;
-    const news = React.useRef(null);
-    const [status, setStatus] = React.useState({});
+export default function DetailContainer({ data }) {
+    const { time, title, description } = data;
 
     return (
-
         <View style={styles.container}>
 
             <View>
@@ -22,19 +17,22 @@ export default function DetailCard({ item }) {
                 </Text>
 
             </View>
-
-            {description.map((item) =>
+            {description !== undefined ?
                 <View>
-                    {item['text'] !== null &&
-                        <Text style={styles.description}>{item['text']}</Text>}
+                    {description.map((item) =>
+                        <View>
+                            {item['description'] !== null &&
+                                <Text style={styles.description}>{item['description']}</Text>}
 
-                    {item['image'] !== null &&
-                        <Image
-                            style={styles.image}
-                            source={{ uri: item['image'] }}
-                        />}
+                            {item['imageUrl'] !== null &&
+                                <Image
+                                    style={styles.image}
+                                    source={{ uri: item['imageUrl'] }}
+                                />}
+                        </View>
+                    )}
                 </View>
-            )}
+                : null}
 
             <View style={styles.button}>
                 <Button

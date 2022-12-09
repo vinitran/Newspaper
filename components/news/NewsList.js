@@ -9,9 +9,10 @@ export default function NewsList({ data }) {
   const navigation = useNavigation();
   return (
     <View>
-      <View style={styles.container}>
-        {data.map((item) => <NewsCard onPress={() => navigation.navigate('NewsDetail')} item={item} key={item.id} />)}
-      </View>
+      {data !== null ?
+        <View style={styles.container}>
+          {data.map((item) => <NewsCard onPress={() => navigation.navigate('NewsDetail', { itemId: item.id })} item={item} key={item.id} />)}
+        </View> : null}
     </View>
   );
 }

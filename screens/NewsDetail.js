@@ -1,15 +1,32 @@
 import { StyleSheet, View, Text } from 'react-native';
 import React from 'react';
 import Screen from '../components/Screen';
-import data from "../fakeDataNewsDetail"
-import DetailContainer from '../components/newsDetail/DetailContainer';
+import DetailContainer from '../components/DetailContainer';
+import axios from 'axios';
 
-export default function NewsDetail() {
-  const detailData = data;
+export default function NewsDetail({ route }) {
+  console.log(route)
+  const id = JSON.stringify(route.params.itemId)
+  const [detailContainer, setDetailContainer] = React.useState([]);
+  React.useEffect(() => {
+    async function fetchDetail() {
+      try {
+        const requestUrl = "https://9130-42-114-89-183.ap.ngrok.io/get/newsDetail/" + id;
+        const data = await axios.get(requestUrl)
+          .then(res => res.data)
+        setDetailContainer(data)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchDetail()
+  }, [])
+
   return (
     <Screen >
       <View style={styles.container}>
-        <DetailContainer data={detailData} />
+        {detailContainer !== null ?
+          <DetailContainer data={detailContainer} /> : null}
       </View>
     </Screen >
   );
