@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Animated, Easing, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, Image, Animated, Easing, StatusBar, TouchableWithoutFeedback } from 'react-native';
 import * as React from 'react';
 import { Video } from 'expo-av';
 import { windowHeight, windowWidth } from "../constant"
@@ -6,6 +6,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
 export default function VideoItem({ data, isActive }) {
     const video = React.useRef(null)
+    const [status, setStatus] = React.useState({});
     const { uri, caption, channelName, musicName, likes, avatarUri } = data
 
     const discAnimatedValue = React.useRef(new Animated.Value(0)).current;
@@ -29,55 +30,61 @@ export default function VideoItem({ data, isActive }) {
         ).start();
     }, [discAnimatedValue])
 
-    const bottomTabHeight = useBottomTabBarHeight()
-    const statusBarHeight = StatusBar.currentHeight || 0;
-    return (
-        <View style={[styles.container, { height: windowHeight }]}>
-            <Video
-                ref={video}
-                style={styles.video}
-                source={{ uri: uri }}
-                resizeMode="cover"
-                shouldPlay={isActive}
-            />
-            <View style={styles.bottomSection}>
-                <View style={styles.bottomLeftSection}>
-                    <Text style={styles.channelName}>{channelName}</Text>
-                    <Text style={styles.caption}>{caption}</Text>
-                    <View style={styles.musicNameContainer}>
-                        <Image
-                            source={require("../assets/images/music-note.png")}
-                            style={styles.musicNameIcon}
-                        />
-                        <Text style={styles.musicName}>{musicName}</Text>
-                    </View>
-                </View>
-                <View style={styles.bottomRightSection}>
-                    <Animated.Image
-                        source={require("../assets/images/disc.png")}
-                        style={[styles.musicDisc, discAnimation]}
-                    />
-                </View>
-            </View>
-            <View style={styles.verticalBar}>
-                <View style={[styles.verticalBarItem, styles.avatarContainer]}>
-                    <Image style={styles.avatar} source={{ uri: avatarUri }} />
-                    <View style={styles.followButton}>
-                        <Image source={require("../assets/images/plus-button.png")}
-                            style={styles.followIcon} />
-                    </View>
-                </View>
-                <View style={styles.verticalBarItem}>
-                    <Image style={styles.verticalBarIcon} source={require("../assets/images/heart.png")} />
-                    <Text style={styles.verticalBarText}>{likes}</Text>
-                </View>
 
-                <View style={styles.verticalBarItem}>
-                    <Image style={styles.verticalBarIcon} source={require("../assets/images/reply.png")} />
-                    <Text style={styles.verticalBarText}>Share</Text>
+    return (
+        <TouchableWithoutFeedback onPress={() => {
+            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync();
+        }
+        }>
+            <View style={[styles.container, { height: windowHeight }]}>
+                <Video
+                    ref={video}
+                    style={styles.video}
+                    source={{ uri: uri }}
+                    resizeMode="cover"
+                    shouldPlay={isActive}
+                    isLooping
+                    onPlaybackStatusUpdate={status => setStatus(() => status)}
+                />
+                <View style={styles.bottomSection}>
+                    <View style={styles.bottomLeftSection}>
+                        <Text style={styles.channelName}>{channelName}</Text>
+                        <Text style={styles.caption}>{caption}</Text>
+                        <View style={styles.musicNameContainer}>
+                            <Image
+                                source={require("../assets/images/music-note.png")}
+                                style={styles.musicNameIcon}
+                            />
+                            <Text style={styles.musicName}>{musicName}</Text>
+                        </View>
+                    </View>
+                    <View style={styles.bottomRightSection}>
+                        <Animated.Image
+                            source={require("../assets/images/disc.png")}
+                            style={[styles.musicDisc, discAnimation]}
+                        />
+                    </View>
+                </View>
+                <View style={styles.verticalBar}>
+                    <View style={[styles.verticalBarItem, styles.avatarContainer]}>
+                        <Image style={styles.avatar} source={{ uri: avatarUri }} />
+                        <View style={styles.followButton}>
+                            <Image source={require("../assets/images/plus-button.png")}
+                                style={styles.followIcon} />
+                        </View>
+                    </View>
+                    <View style={styles.verticalBarItem}>
+                        <Image style={styles.verticalBarIcon} source={require("../assets/images/heart.png")} />
+                        <Text style={styles.verticalBarText}>{likes}</Text>
+                    </View>
+
+                    <View style={styles.verticalBarItem}>
+                        <Image style={styles.verticalBarIcon} source={require("../assets/images/reply.png")} />
+                        <Text style={styles.verticalBarText}>Share</Text>
+                    </View>
                 </View>
             </View>
-        </View>
+        </TouchableWithoutFeedback >
     );
 }
 
@@ -166,6 +173,6 @@ const styles = StyleSheet.create({
     followIcon: {
         width: 21,
         height: 21
-    }
+    },
 });
 
