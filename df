@@ -1,0 +1,50 @@
+[33mcommit 575bddac958fdae6ed00e4f3db10f45fa7408520[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/hoangng[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Hoang Nguyen <tienhoangnguyen.work@gmail.com>
+Date:   Mon Dec 5 22:20:07 2022 +0700
+
+    navigate and detail
+
+[33mcommit 33479ebea2d04302d793b9231d9fdf560f77da59[m
+Author: cheSau <hongquanvd1@gmail.com>
+Date:   Sun Nov 27 20:10:59 2022 +0700
+
+    add navigate video
+
+[33mcommit 73d7451e8c1572b952d9e22aff1ad3c310ef80de[m
+Author: Hoang Nguyen <tienhoangnguyen.work@gmail.com>
+Date:   Sun Nov 27 10:42:47 2022 +0700
+
+    news & trending
+
+[33mcommit 0d2ad1400eb81b27a0e5b5ae54c683aaf13b85ce[m
+Merge: 3a1794e 7694f5f
+Author: CheSauRie <109321897+CheSauRie@users.noreply.github.com>
+Date:   Fri Nov 25 23:45:43 2022 +0700
+
+    Merge pull request #1 from vinitran/Quan
+    
+    update video screen
+
+[33mcommit 7694f5ff32e3cba697e95d9ff9771bfac233ad32[m[33m ([m[1;31morigin/Quan[m[33m)[m
+Author: cheSau <hongquanvd1@gmail.com>
+Date:   Fri Nov 25 23:40:14 2022 +0700
+
+    update video screen
+
+[33mcommit 3a1794ef12b1de99a1dba0a92dafbd823591eec8[m
+Author: Vini <vinitran124@gmail.com>
+Date:   Fri Nov 18 10:54:33 2022 +0700
+
+    18/11 â
+
+[33mcommit 4dadbbf6539732917f404830c3fabbb9500358ee[m
+Author: Vini <vinitran124@gmail.com>
+Date:   Fri Nov 18 08:39:35 2022 +0700
+
+    18/11
+
+[33mcommit 1a8611a40d0deb2c0a20b6eba7c39df15fa2232e[m
+Author: Vini <vinitran124@gmail.com>
+Date:   Thu Nov 17 16:36:39 2022 +0700
+
+    Created a new Expo app
