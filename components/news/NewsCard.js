@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         borderRadius: 8
     },
     content: {
-        paddingTop: 15,
+        paddingTop: 5,
         paddingHorizontal: 15,
     },
     videos: {

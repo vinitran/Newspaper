@@ -22,7 +22,7 @@ export default function App() {
 
         }}></Stack.Screen>
         <Stack.Screen name="NewsDetail" component={NewsDetail} options={{
-          headerBackTitleVisible: false, headerTransparent: false, title: ""
+          headerBackTitleVisible: true, headerTransparent: false, title: ""
 
         }}></Stack.Screen>
       </Stack.Navigator>

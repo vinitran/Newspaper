@@ -11,7 +11,7 @@ export default function NewsDetail({ route }) {
   React.useEffect(() => {
     async function fetchDetail() {
       try {
-        const requestUrl = "https://9130-42-114-89-183.ap.ngrok.io/get/newsDetail/" + id;
+        const requestUrl = "https://b915-42-114-89-183.ap.ngrok.io/get/newsDetail/" + id;
         const data = await axios.get(requestUrl)
           .then(res => res.data)
         setDetailContainer(data)

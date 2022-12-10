@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Logo({ thumbnail, time, color = "black" }) {
     return (
-        <View style={{ flexDirection: 'row', height: 50, justifyContent: 'flex-start', alignItems: 'center' }}>
+        <View style={{ flexDirection: 'row', height: 45, justifyContent: 'flex-start', alignItems: 'center' }}>
             {/* <Image source={{ uri: thumbnail }}
                 style={{
                     width: 40,
@@ -16,8 +16,9 @@ export default function Logo({ thumbnail, time, color = "black" }) {
                 }}
             /> */}
             <Text style={{
-                marginTop: 25,
+                marginTop: 15,
                 marginStart: 15,
+                fontSize: 18,
                 color
             }}>
                 {time}
