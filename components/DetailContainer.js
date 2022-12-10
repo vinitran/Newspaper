@@ -1,9 +1,9 @@
 import { StyleSheet, Button, TouchableWithoutFeedback, Text, View, Image } from 'react-native';
 import React, { useEffect } from 'react';
-import Title from '../Title';
-import Logo from '../Logo';
+import Title from './Title';
+import Logo from './Logo';
 import TextToSpeech from './TextToSpeech';
-import TextToSpeechFpt from '../TextToSpeechFpt';
+import TextToSpeechFpt from './TextToSpeechFpt';
 
 const NO_WIDTH_SPACE = '​';
 export default function DetailContainer({ data }) {
