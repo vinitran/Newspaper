@@ -29,15 +29,23 @@ export default function DetailContainer({ data }) {
             let tmpDes = []
             tmpDes.push("Tiêu đề.", title, "Nội dung.")
             description.map((item, index) => {
+                let subDesImg = item.imageUrl
                 if (item.description) {
-                    let subDes = item.description.split(".")
-                    subDes.pop(subDes.length - 1)
-                    tmpDes.push(subDes.map((subItem) => {
-                        subItem += '.'
-                        console.log(subItem)
-                        return subItem
-                    }
-                    ))
+                    let subDesText = item.description.split(".")
+                    subDesText.pop(subDesText.length - 1)
+                    tmpDes.push({
+                        text: subDesText.map((subItem) => {
+                            subItem += '.'
+                            return subItem
+                        }
+                        ),
+                        imageUrl: subDesImg
+                    })
+                } else {
+                    tmpDes.push({
+                        text: "",
+                        imageUrl: subDesImg
+                    })
                 }
             })
             setDesAfterSplit(tmpDes)
@@ -112,24 +120,24 @@ export default function DetailContainer({ data }) {
                     <View>
                         {desAfterSplit.map((item, index) =>
                             <View>
-                                {index > 2 && item['description'] !== null &&
-                                    <Text style={styles.description}>
-                                        {
-                                            item.length > 0 &&
-                                            item.map((arrItem, subIndex) => {
-                                                if (inListening && subIndex === sentenceSubIndex && index === sentenceIndex) {
-                                                    return highlight(arrItem)
-                                                }
-                                                return arrItem
-                                            })
-                                        }
-                                    </Text>}
-
-                                {item['imageUrl'] !== null &&
-                                    <Image
-                                        style={styles.image}
-                                        source={{ uri: item['imageUrl'] }}
-                                    />}
+                               {index > 2 && item.text &&
+                                        <Text style={styles.description}>
+                                            {
+                                                item.text !== "" && item.text.length > 0 &&
+                                                item.text.map((arrItem, subIndex) => {
+                                                    if (inListening && subIndex === sentenceSubIndex && index === sentenceIndex) {
+                                                        return highlight(arrItem)
+                                                    }
+                                                    return arrItem
+                                                })
+                                            }
+                                        </Text>
+                                    }
+                                    {index > 2 && item.imageUrl &&
+                                        <Image
+                                            style={styles.video}
+                                            source={{ uri: item.imageUrl }}
+                                        />}
                             </View>
                         )}
                     </View>
