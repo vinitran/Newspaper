@@ -103,19 +103,6 @@ export default function DetailContainer({ data }) {
                     /> */}
                 </View>
             </View >
-            <View>
-                <Text style={styles.subtitle}>
-                    {
-                        desAfterSplit[3] && desAfterSplit[3].length > 0 &&
-                        desAfterSplit[3].map((arrItem, index) => {
-                            if (inListening && sentenceIndex === 3 && index === sentenceSubIndex) {
-                                return highlight(arrItem)
-                            }
-                            return arrItem
-                        }
-                        )}
-                </Text>
-            </View>
 
             {
                 description !== undefined ?
