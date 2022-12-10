@@ -12,10 +12,9 @@ export default function TrendingList({ data, topic }) {
     <View>
       <View style={styles.container}>
         <View style={styles.topic}>
-          <Text style={styles.textTopic}> $ {topic[0]} </Text>
+          <Text style={styles.textTopic}> $ {topic} </Text>
         </View>
         {data.map((item) => <TrendingCard onPress={() => navigation.navigate('NewsDetail', { itemId: item.id })} item={item} key={item.id} />)}
-        <Text style={styles.readmore}>Đọc thêm</Text>
       </View>
     </View>
   );
@@ -27,11 +26,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingBottom: 15,
     marginBottom: 1,
-  },
-
-  readmore: {
-    textAlign: 'center',
-    fontWeight: 'bold',
   },
 
   topic: {

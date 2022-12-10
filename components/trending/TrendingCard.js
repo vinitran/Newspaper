@@ -19,11 +19,20 @@ export default function TrendingCard({ item, onPress }) {
         <View style={styles.discription}>
           <View style={styles.content}>
             <Text numberOfLines={3} style={styles.content}>{title}</Text>
+
+            <Text style={{
+              marginTop: 15,
+              marginStart: 15,
+              fontSize: 14,
+            }}>
+
+              {time}
+            </Text>
           </View>
-          <Logo time={time} />
+
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableWithoutFeedback >
   );
 }
 
@@ -47,8 +56,7 @@ const styles = StyleSheet.create({
     width: '60%',
   },
   content: {
-    paddingTop: 18,
-    paddingBottom: 14,
+    paddingTop: 8,
     paddingHorizontal: 15,
     fontSize: 18,
     fontWeight: 'bold',
