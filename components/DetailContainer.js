@@ -6,8 +6,9 @@ import TextToSpeech from './TextToSpeech';
 import TextToSpeechFpt from '../TextToSpeechFpt';
 
 const NO_WIDTH_SPACE = '​';
-export default function DetailCard({ item }) {
-    const { imageUrl, logo, time, title, description } = item;
+export default function DetailContainer({ data }) {
+    const { time, title, description } = data;
+
     const news = React.useRef(null);
     const [status, setStatus] = React.useState({});
     const [desAfterSplit, setDesAfterSplit] = React.useState([])
@@ -27,7 +28,7 @@ export default function DetailCard({ item }) {
             let tmpDes = []
             tmpDes.push("Tiêu đề.", title, "Nội dung.")
             description.map((item, index) => {
-                let subDes = item.split(".")
+                let subDes = item.description.split(".")
                 subDes.pop(subDes.length - 1)
                 tmpDes.push(subDes.map((subItem) => {
                     subItem += '.'
@@ -78,7 +79,6 @@ export default function DetailCard({ item }) {
     }
 
     return (
-
         <View style={styles.container}>
             <View>
                 <Text numberOfLines={3} style={styles.title}>
@@ -102,9 +102,7 @@ export default function DetailCard({ item }) {
                         handleInProgress={handleInProgress}
                     /> */}
                 </View>
-
-            </View>
-
+            </View >
             <View>
                 <Text style={styles.subtitle}>
                     {
@@ -119,43 +117,36 @@ export default function DetailCard({ item }) {
                 </Text>
             </View>
 
-            <View>
-                <Text style={styles.description}>
-                    {
-                        desAfterSplit[4] && desAfterSplit[4].length > 0 &&
-                        desAfterSplit[4].map((arrItem, index) => {
-                            if (inListening && sentenceIndex === 4 && index === sentenceSubIndex) {
-                                return highlight(arrItem)
-                            }
-                            return arrItem
-                        }
+            {
+                description !== undefined ?
+                    <View>
+                        {description.map((item, index) =>
+                            <View>
+                                {item['description'] !== null &&
+                                    <Text style={styles.description}>
+                                        {
+                                            desAfterSplit[index].length > 0 &&
+                                            desAfterSplit[index].map((arrItem, subIndex) => {
+                                                if (inListening && subIndex === sentenceSubIndex) {
+                                                    return highlight(arrItem)
+                                                }
+                                                return arrItem
+                                            })
+                                        }
+                                    </Text>}
+
+                                {item['imageUrl'] !== null &&
+                                    <Image
+                                        style={styles.image}
+                                        source={{ uri: item['imageUrl'] }}
+                                    />}
+                            </View>
                         )}
-                </Text>
-            </View>
-
-            <View style={styles.video}>
-                <Image
-                    style={styles.video}
-                    source={{ uri: imageUrl[0] }}
-                />
-            </View>
-
-            <View>
-                <Text style={styles.description}>
-                    {
-                        desAfterSplit[5] && desAfterSplit[5].length > 0 &&
-                        desAfterSplit[5].map((arrItem, index) => {
-                            if (inListening && sentenceIndex === 5 && index === sentenceSubIndex) {
-                                return highlight(arrItem)
-                            }
-                            return arrItem
-                        }
-                        )}
-                </Text>
-            </View>
+                    </View>
+                    : null}
 
 
-        </View>
+        </View >
     );
 }
 
@@ -175,12 +166,12 @@ const styles = StyleSheet.create({
         paddingTop: 50,
         paddingHorizontal: 20,
     },
-    video: {
+    image: {
         width: '100%',
         height: 200,
-        marginTop: 20,
+        marginTop: 30,
         borderRadius: 8,
-        marginBottom: 20,
+        marginBottom: 30,
     },
     title: {
         fontWeight: 'bold',

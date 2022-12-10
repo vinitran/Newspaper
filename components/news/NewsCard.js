@@ -4,7 +4,7 @@ import Title from '../Title';
 import Logo from '../Logo';
 
 export default function NewsCard({ item, onPress }) {
-    const { imageUrl, logo, time, title } = item;
+    const { imageUrl, time, title } = item;
     const news = React.useRef(null);
     const [status, setStatus] = React.useState({});
 
@@ -19,7 +19,7 @@ export default function NewsCard({ item, onPress }) {
                     />
                 </View>
 
-                <Logo thumbnail={logo} time={time} />
+                <Logo time={time} />
                 <View style={styles.content}>
                     <Title style={styles.content}>
                         {title}

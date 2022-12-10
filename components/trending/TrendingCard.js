@@ -4,7 +4,7 @@ import Title from '../Title';
 import Logo from '../Logo';
 
 export default function TrendingCard({ item, onPress }) {
-  const { imageUrl, logo, time, title } = item;
+  const { imageUrl, time, title } = item;
 
   return (
     <TouchableWithoutFeedback onPress={onPress}>
@@ -22,7 +22,7 @@ export default function TrendingCard({ item, onPress }) {
               {title}
             </Title>
           </View>
-          <Logo thumbnail={logo} time={time} />
+          <Logo time={time} />
         </View>
       </View>
     </TouchableWithoutFeedback>

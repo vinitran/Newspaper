@@ -1,23 +1,27 @@
-import { StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import * as React from 'react';
-import Screen from '../components/Screen';
-import data from "../fakeDataVideo"
-import VideoNews from '../components/VideoNews';
+import VideoItem from '../components/VideoItem';
+import video from "../fakeDataVideo"
+import { windowHeight } from '../constant';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 
-
-const ITEM_HEIGHT = 350;
 export default function VideoScreen() {
-    const [focusedIndex, setFocusedIndex] = React.useState(0);
-
-    const videoNews = data;
-    const handleScroll = React.useCallback((e) => {
-        const offset = Math.round(e.nativeEvent.contentOffset.y / ITEM_HEIGHT);
-        setFocusedIndex(offset)
-    }, [setFocusedIndex]);
+    const data = video;
+    const [activeVideoIndex, setActiveVideoIndex] = React.useState(0)
+    const bottomTabHeight = useBottomTabBarHeight();
     return (
-        <Screen handleScroll={handleScroll} >
-            <VideoNews data={videoNews} focusedIndex={focusedIndex} />
-        </Screen >
+        <FlatList
+            data={data}
+            pagingEnabled
+            renderItem={({ item, index }) => <VideoItem data={item} isActive={activeVideoIndex === index} />}
+            onScroll={e => {
+                const index = Math.round(e.nativeEvent.contentOffset.y / (windowHeight - bottomTabHeight))
+                setActiveVideoIndex(index)
+            }}
+        />
+
+
+
     );
 }
 
