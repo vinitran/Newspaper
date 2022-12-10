@@ -2,12 +2,11 @@ import { StyleSheet, TouchableWithoutFeedback, View, Image } from 'react-native'
 import React from 'react';
 import Title from '../Title';
 import Logo from '../Logo';
-
 export default function UtilitiesCard({ item, onPress }) {
     const { imageUrl, logo, time, title } = item;
     const news = React.useRef(null);
     const [status, setStatus] = React.useState({});
-
+    console.log(imageUrl)
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.container}>
@@ -21,7 +20,7 @@ export default function UtilitiesCard({ item, onPress }) {
                 <View style={styles.videos}>
                     <Image
                         style={styles.video}
-                        source={{ uri: imageUrl }}
+                        source={require('../../assets/calendar.png')}
                     />
                 </View>
             </View>
