@@ -3,15 +3,13 @@ import React from 'react';
 import Title from '../Title';
 import Logo from '../Logo';
 export default function UtilitiesCard({ item, onPress }) {
-    const { imageUrl, logo, time, title } = item;
+    const { imageUrl, height, time, title } = item;
     const news = React.useRef(null);
     const [status, setStatus] = React.useState({});
     console.log(imageUrl)
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={styles.container}>
-
-
                 <View style={styles.content}>
                     <Title style={styles.content}>
                         {title}
@@ -20,7 +18,7 @@ export default function UtilitiesCard({ item, onPress }) {
                 <View style={styles.videos}>
                     <Image
                         style={styles.video}
-                        source={require('../../assets/calendar.png')}
+                        source={{ uri: imageUrl }}
                     />
                 </View>
             </View>
@@ -33,21 +31,21 @@ const styles = StyleSheet.create({
         width: '100%',
         borderRadius: 10,
         overflow: 'hidden',
-        backgroundColor: '#fff',
-        paddingBottom: 20,
-        marginBottom: 10,
+        paddingBottom: 15,
     },
     video: {
         width: '100%',
-        height: 200,
+        height: undefined,
+        aspectRatio: 2,
         marginTop: 10,
-        borderRadius: 8
+        borderRadius: 8,
     },
     content: {
-        paddingTop: 25,
-        paddingHorizontal: 15,
+        paddingTop: 15,
+        paddingHorizontal: 20,
     },
     videos: {
+        width: '100%',
         paddingHorizontal: 15,
     }
 });
