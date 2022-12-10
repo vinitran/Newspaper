@@ -15,7 +15,7 @@ export default function TrendingScreen() {
     React.useEffect(() => {
         async function fetchTrending() {
             try {
-                const requestUrl = "https://b915-42-114-89-183.ap.ngrok.io/get/videos/list/from/8/to/16";
+                const requestUrl = "https://c9b5-14-231-133-217.ap.ngrok.io/get/videos/list/from/8/to/16";
                 const data = await axios.get(requestUrl)
                     .then(res => res.data)
                 setData1([data[0], data[1], data[2]])

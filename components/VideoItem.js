@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, Animated, Easing, StatusBar, TouchableWi
 import * as React from 'react';
 import { Video } from 'expo-av';
 import { windowHeight, windowWidth } from "../constant"
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+
 
 export default function VideoItem({ data, isActive }) {
     const video = React.useRef(null)
