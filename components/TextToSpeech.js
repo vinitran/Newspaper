@@ -22,19 +22,27 @@ export default class TextToSpeech extends React.Component {
 
         }
     }
+    
+     componentWillUnmount() {
+        this._stop()
+    }
 
     handleSpeechText = () => {
         if (!this.state.isSpeaking && !this.state.inProgress) {
-
             this.props.description.map((item, index) => {
-                if (index < 2) {
+                if (index === 0) {
                     this._speak(item, false, 'title')
-                } else if (index === 2) { this._speak(item, false, 3, 0) }
-                else if (item.length > 0) {
-                    item.map((subItem, subIndex) => {
-                        if (subIndex === item.length - 1 && index === this.props.description.length - 1) {
+                } else if (index === 1) {
+                    this._speak(item, false)
+
+                }
+
+                else if (index === 2) { this._speak(item, false, 3, 0) }
+                else if (item.text !== "" && item.text.length > 0) {
+                    item.text.map((subItem, subIndex) => {
+                        if (subIndex === item.text.length - 1 && index === this.props.description.length - 1) {
                             this._speak(subItem, true)
-                        } else if (subIndex === item.length - 1) {
+                        } else if (subIndex === item.text.length - 1) {
                             this._speak(subItem, false, index + 1, 0)
                         } else {
                             this._speak(subItem, false, index, subIndex + 1)
