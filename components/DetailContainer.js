@@ -29,14 +29,16 @@ export default function DetailContainer({ data }) {
             let tmpDes = []
             tmpDes.push("Tiêu đề.", title, "Nội dung.")
             description.map((item, index) => {
-                let subDes = item.description.split(".")
-                subDes.pop(subDes.length - 1)
-                tmpDes.push(subDes.map((subItem) => {
-                    subItem += '.'
-                    console.log(subItem)
-                    return subItem
+                if (item.description) {
+                    let subDes = item.description.split(".")
+                    subDes.pop(subDes.length - 1)
+                    tmpDes.push(subDes.map((subItem) => {
+                        subItem += '.'
+                        console.log(subItem)
+                        return subItem
+                    }
+                    ))
                 }
-                ))
             })
             setDesAfterSplit(tmpDes)
             console.log(tmpDes)
@@ -108,14 +110,14 @@ export default function DetailContainer({ data }) {
             {
                 description !== undefined ?
                     <View>
-                        {description.map((item, index) =>
+                        {desAfterSplit.map((item, index) =>
                             <View>
-                                {item['description'] !== null &&
+                                {index > 2 && item['description'] !== null &&
                                     <Text style={styles.description}>
                                         {
-                                            desAfterSplit[index].length > 0 &&
-                                            desAfterSplit[index].map((arrItem, subIndex) => {
-                                                if (inListening && subIndex === sentenceSubIndex) {
+                                            item.length > 0 &&
+                                            item.map((arrItem, subIndex) => {
+                                                if (inListening && subIndex === sentenceSubIndex && index === sentenceIndex) {
                                                     return highlight(arrItem)
                                                 }
                                                 return arrItem
@@ -132,7 +134,6 @@ export default function DetailContainer({ data }) {
                         )}
                     </View>
                     : null}
-
 
         </View >
     );

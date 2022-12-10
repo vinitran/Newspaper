@@ -28,6 +28,7 @@ export default function VideoScreen() {
         <FlatList
             data={data}
             pagingEnabled
+            showsVerticalScrollIndicator={false}
             renderItem={({ item, index }) => <VideoItem data={item} isActive={activeVideoIndex === index} />}
             onScroll={e => {
                 const index = Math.round(e.nativeEvent.contentOffset.y / (windowHeight - bottomTabHeight))

@@ -10,7 +10,7 @@ export default class TextToSpeech extends React.Component {
         text: '',
         inProgress: false,
         pitch: 0.8,
-        rate: 1.5,
+        rate: 1.2,
         isSpeaking: false,
         selectSentence: '',
         desText: this.props.description,
