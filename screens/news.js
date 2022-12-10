@@ -11,7 +11,7 @@ export default function NewsScreen() {
     React.useEffect(() => {
         async function fetchNews() {
             try {
-                const requestUrl = "https://9130-42-114-89-183.ap.ngrok.io/get/news/list";
+                const requestUrl = "https://d647-42-114-89-183.ap.ngrok.io/get/videos/list/from/1/to/7";
                 const data = await axios.get(requestUrl)
                     .then(res => res.data)
                 setNewsContainer(data)

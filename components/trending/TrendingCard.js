@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableWithoutFeedback, View, Image } from 'react-native';
+import { StyleSheet, TouchableWithoutFeedback, Text, View, Image } from 'react-native';
 import React from 'react';
 import Title from '../Title';
 import Logo from '../Logo';
@@ -18,9 +18,7 @@ export default function TrendingCard({ item, onPress }) {
 
         <View style={styles.discription}>
           <View style={styles.content}>
-            <Title style={styles.content}>
-              {title}
-            </Title>
+            <Text numberOfLines={3} style={styles.content}>{title}</Text>
           </View>
           <Logo time={time} />
         </View>
@@ -52,5 +50,9 @@ const styles = StyleSheet.create({
     paddingTop: 18,
     paddingBottom: 14,
     paddingHorizontal: 15,
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'black',
+    letterSpacing: 1,
   },
 });

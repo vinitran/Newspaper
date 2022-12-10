@@ -1,5 +1,6 @@
 import { StyleSheet, Button, Text, View, Image } from 'react-native';
 import React from 'react';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export default function DetailContainer({ data }) {
     const { time, title, description } = data;
@@ -15,6 +16,13 @@ export default function DetailContainer({ data }) {
                 <Text style={styles.time}>
                     {time}
                 </Text>
+                <Icon.Button
+                    name="sound"
+                    backgroundColor="white"
+                    color="black"
+                >
+                    Speak
+                </Icon.Button>
 
             </View>
             {description !== undefined ?
@@ -49,7 +57,7 @@ const styles = StyleSheet.create({
         width: '100%',
         overflow: 'hidden',
         backgroundColor: '#fff',
-        paddingTop: 50,
+        paddingTop: 10,
         paddingHorizontal: 20,
     },
     image: {
@@ -61,21 +69,21 @@ const styles = StyleSheet.create({
     },
     title: {
         fontWeight: 'bold',
-        fontSize: 24,
+        fontSize: 32,
         color: 'black',
         marginTop: 10,
         marginBottom: 10,
         letterSpacing: 1,
     },
     time: {
-        fontSize: 14,
+        fontSize: 18,
         color: 'gray',
         marginTop: 10,
         marginBottom: 10,
     },
     subtitle: {
         fontWeight: 'bold',
-        fontSize: 18,
+        fontSize: 24,
         color: 'black',
         marginTop: 10,
         marginBottom: 10,
@@ -83,7 +91,7 @@ const styles = StyleSheet.create({
         lineHeight: 30,
     },
     description: {
-        fontSize: 14,
+        fontSize: 18,
         color: 'black',
         marginTop: 10,
         marginBottom: 10,
