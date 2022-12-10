@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
-
-import ProfileScreen from "../screens/profile";
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
+import UtilitiesScreen from "../screens/utilities";
 import VideoScreen from "../screens/video";
 import TrendingScreen from '../screens/trending';
 import NewsScreen from "../screens/news";
@@ -48,11 +48,11 @@ export default function VideoNavigator() {
                     ),
                 }}
             />
-            <Tab.Screen name="Profile" component={ProfileScreen}
+            <Tab.Screen name="Utilities" component={UtilitiesScreen}
                 options={{
-                    tabBarLabel: 'Profile',
+                    tabBarLabel: 'Utilities',
                     tabBarIcon: ({ color }) => (
-                        <FontAwesome name="user" color={color} size={24} />
+                        <MaterialCommunityIcons name="view-grid-outline" color={color} size={24} />
                     ),
                 }}
             />
