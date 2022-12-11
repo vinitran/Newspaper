@@ -135,7 +135,7 @@ export default function DetailContainer({ data }) {
                                     }
                                     {index > 2 && item.imageUrl &&
                                         <Image
-                                            style={styles.video}
+                                            style={styles.image}
                                             source={{ uri: item.imageUrl }}
                                         />}
                             </View>
